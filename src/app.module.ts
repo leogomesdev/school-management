@@ -5,9 +5,9 @@ import { LessonModule } from './lesson/lesson.module';
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      autoSchemaFile: true
+      autoSchemaFile: true,
     }),
-    LessonModule
+    LessonModule,
   ],
 })
 export class AppModule {}

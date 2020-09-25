@@ -1,15 +1,15 @@
-import { Query, Resolver } from "@nestjs/graphql";
-import { LessonType } from "./lesson.type";
+import { Query, Resolver } from '@nestjs/graphql';
+import { LessonType } from './lesson.type';
 
-@Resolver(of => LessonType)
-export class LessonResolver{
-  @Query(returns => LessonType)
-  lesson() {
+@Resolver(() => LessonType)
+export class LessonResolver {
+  @Query(() => LessonType)
+  lesson(): LessonType {
     return {
       id: 'xpto',
       name: 'Physics class',
-      startDate: (new Date()).toISOString(),
-      endDate: (new Date()).toISOString(),
-    }
+      startDate: new Date().toISOString(),
+      endDate: new Date().toISOString(),
+    };
   }
 }
