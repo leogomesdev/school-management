@@ -1,10 +1,20 @@
 {
   "name": "school-management",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "A School Management system",
+  "author": "Leonardo Gomes da Silva",
+  "engines": {
+    "node": "^14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "engineStrict": true,
   "private": true,
-  "license": "UNLICENSED",
+  "license": "GNU General Public License",
+  "husky": {
+    "hooks": {
+      "pre-commit": "yon run lint"
+    }
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -45,6 +55,7 @@
     "eslint": "7.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.3.0",
     "jest": "26.0.1",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
@@ -52,7 +63,8 @@
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "yarn-or-npm": "^3.0.1"
   },
   "jest": {
     "moduleFileExtensions": [
