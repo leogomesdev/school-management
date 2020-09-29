@@ -1,4 +1,5 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { ParseUUIDPipe } from '@nestjs/common';
 import { LessonType } from './lesson.type';
 import { Lesson } from './lesson.entity';
 import { LessonService } from './lesson.service';
@@ -9,7 +10,7 @@ export class LessonResolver {
   constructor(private lessonService: LessonService) {}
 
   @Query(() => LessonType)
-  lesson(@Args('id') id: string): Promise<Lesson> {
+  lesson(@Args('id', ParseUUIDPipe) id: string): Promise<Lesson> {
     return this.lessonService.getLesson(id);
   }
 
