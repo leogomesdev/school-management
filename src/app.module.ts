@@ -10,7 +10,7 @@ import { LessonModule } from './lesson/lesson.module';
       url: 'mongodb://localhost/school',
       synchronize: true,
       useUnifiedTopology: true,
-      entities: [__dirname + '/../**/*.entity.{js,ts}'],
+      entities: [__dirname + '/**/*.entity.{js,ts}'],
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
