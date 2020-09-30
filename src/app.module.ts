@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLError, GraphQLFormattedError } from 'graphql';
 import { LessonModule } from './lesson/lesson.module';
 import { StudentModule } from './student/student.module';
 
@@ -15,6 +16,13 @@ import { StudentModule } from './student/student.module';
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,
+      debug: false,
+      formatError: (error: GraphQLError) => {
+        const graphQLFormattedError: GraphQLFormattedError = {
+          message: error.extensions.exception.response.message || error.message,
+        };
+        return graphQLFormattedError;
+      },
     }),
     LessonModule,
     StudentModule,
